@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Resend\Laravel\Facades\Resend;
+use App\Mail\RegisterMail;
+
 
 class AuthController extends Controller
 {
@@ -53,6 +56,13 @@ class AuthController extends Controller
 $user->save();
 
             $token = $user->createToken('auth_token')->plainTextToken;
+
+            Resend::emails()->send([
+                'from' => 'Acme <onboarding@resend.dev>',
+                'to' => [$request->user()->email],
+                'subject' => 'Bienvenido a DatingLab',
+                'html' => (new RegisterMail($user))->render(),
+            ]);
 
             return response()->json([
                 'message' => 'Usuario creado correctamente',
