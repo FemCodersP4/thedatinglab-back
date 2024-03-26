@@ -59,7 +59,7 @@ $user->save();
 
             Resend::emails()->send([
                 'from' => 'Acme <onboarding@resend.dev>',
-                'to' => [$request->user()->email],
+                'to' => [$user->email],
                 'subject' => 'Bienvenido a DatingLab',
                 'html' => (new RegisterMail($user))->render(),
             ]);
