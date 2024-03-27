@@ -17,7 +17,7 @@ class ConfirmAttendance extends Mailable
     public $event;
     /**
      * Create a new message instance.
-     * @param User $user
+     * 
      */
     public function __construct($user, $event)
     {
