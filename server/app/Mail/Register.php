@@ -13,8 +13,11 @@ class Register extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
+    
     /**
      * Create a new message instance.
+     * @param User $user
      */
     public function __construct($user)
     {
