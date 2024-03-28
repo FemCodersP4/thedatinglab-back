@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('lastname')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->boolean('privacypolicies')->default(false);
+            $table->boolean('privacyPolicies')->default(false);
             $table->boolean('over18')->default(false);
             $table->unsignedBigInteger('preference_id')->nullable();
             $table->foreign('preference_id')->references('id')->on('preferences')->onDelete('cascade');

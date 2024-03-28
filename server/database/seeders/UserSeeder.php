@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Laura',
+                'lastname' =>'Gil',
                 'email' => 'laura@gmail.com',
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '1',
@@ -23,6 +24,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Ali',
+                'lastname' =>'Garcia',
                 'email' => 'ali@gmail.com',
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '1',
@@ -30,6 +32,7 @@ class UserSeeder extends Seeder
             ], 
             [
                 'name' => 'Gaby',
+                'lastname' =>'Garcia',
                 'email' => 'gaby@gmail.com',
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '1',
@@ -37,6 +40,7 @@ class UserSeeder extends Seeder
             ], 
             [
                 'name' => 'Debora',
+                'lastname' =>'Garcia',
                 'email' => 'debora@gmail.com',
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '1',
@@ -44,6 +48,7 @@ class UserSeeder extends Seeder
             ], 
             [
                 'name' => 'Fefy',
+                'lastname' =>'Garcia',
                 'email' => 'fefy@gmail.com',
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '1',
@@ -51,6 +56,7 @@ class UserSeeder extends Seeder
             ], 
             [
                 'name' => 'Jess',
+                'lastname' =>'Garcia',
                 'email' => 'jess@gmail.com',
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '1',
@@ -58,6 +64,7 @@ class UserSeeder extends Seeder
             ], 
             [
                 'name' => 'Hemi',
+                'lastname' =>'Garcia',
                 'email' => 'hemi@gmail.com',
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '1',
@@ -65,6 +72,7 @@ class UserSeeder extends Seeder
             ], 
             [
                 'name' => 'Thamy',
+                'lastname' =>'Garcia',
                 'email' => 'thamy@gmail.com',
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '1',
