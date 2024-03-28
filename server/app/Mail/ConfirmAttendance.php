@@ -9,19 +9,20 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Register extends Mailable
+class ConfirmAttendance extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $user;
-    
+    public $event;
     /**
      * Create a new message instance.
      * 
      */
-    public function __construct($user)
+    public function __construct($user, $event)
     {
         $this->user = $user;
+        $this->event = $event;
     }
 
     /**
@@ -29,8 +30,8 @@ class Register extends Mailable
      */
     public function build()
     {
-        return $this->view('register', ['user' => $this->user])
-                ->subject('Registro exitoso');
+        return $this->view('confirmAttendance', ['user' => $this->user])
+                ->subject('¡Registro confirmado para el evento!');
     }
 
     /**
@@ -39,7 +40,7 @@ class Register extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'register',
+            view: 'confirmAttendance',
         );
     }
 
