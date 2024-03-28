@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\Register;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -52,9 +54,11 @@ class AuthController extends Controller
 
 $user->save();
 
-            $token = $user->createToken('auth_token')->plainTextToken;
+        $token = $user->createToken('auth_token')->plainTextToken;
 
-            return response()->json([
+        Mail::to($user)->send(new Register($user));
+        
+        return response()->json([
                 'message' => 'Usuario creado correctamente',
                 'user' => $user,
                 'token' => $token,
