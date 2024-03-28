@@ -14,7 +14,7 @@
         <p class="text-gray-700 mb-4">¡Gracias por registrarte! Estamos emocionados de tenerte con nosotros.</p>
         <p class="text-gray-700 mb-4">Para comenzar a disfrutar de todos nuestros eventos, simplemente inicia sesión con tu cuenta recién creada.</p>
         <p class="text-gray-700 mb-6">¡Esperamos verte pronto en nuestro sitio!</p>
-        <a href="{{ $loginUrl }}" class="inline-block px-6 py-3 bg-pink-600 text-white rounded-md hover:bg-pink-700 transition duration-300">Iniciar Sesión</a>
+        <a href="" class="inline-block px-6 py-3 bg-pink-600 text-white rounded-md hover:bg-pink-700 transition duration-300">Iniciar Sesión</a>
     </div>
 </body>
 </html>
