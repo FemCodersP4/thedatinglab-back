@@ -18,17 +18,16 @@ class Preference extends Model
      */
     protected $fillable = [
         'birthdate',
-        'ageRange',
         'gender',
         'looksFor',
-        'hasChildren',
-        'wantsFamily',
-        'datesParents',
+        'ageRange',
         'sexoAffective',
         'heartState',
+        'personalValues',
         'preferences1',
         'preferences2',
         'catsDogs',
+ 
     ];
 
     protected $hidden = [

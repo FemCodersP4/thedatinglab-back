@@ -22,17 +22,15 @@ class PreferencesController extends Controller
                     if ($age < 18) {
                         $fail('Tienes que ser mayor de 18 años para ingresar.');
                     } },],
-            'ageRange' => ['required', 'in:18-25,26-35,36-45,Más de 45'],
-            'gender' => ['required', 'in:Hombre,Mujer,No binario'],
-            'looksFor' => ['required', 'in:Hombre,Mujer,No binario,Todo'],
-            'hasChildren' => ['required', 'in:Sí,No'],
-            'wantsFamily' => ['required', 'in:Sí,No'],
-            'datesParents' => ['required', 'in:Sí,No,No me lo he planteado'],
-            'sexoAffective' => ['required', 'in:Monógama,Monógama en la que explorar,Abierta,Amigos con derecho a roce,Lo que surja,Casual'],
-            'heartState' => ['required', 'in:Maduro y sereno y dispuesto a compartirlo,Un poco solito,Feliz y palpitante con ganas de conocer,Acabo de salir de una relacion y busco recuperarme y distraerme,Más despechado que Shakira y Piqué,Otra'],
-            'preferences1' => ['required', 'in:Netflix,Eventos,Deporte,Escapadas,Todas,Otras'],
-            'preferences2' => ['required', 'in:Alcohol,Bebidas calientes,Refrescos,Según,Ninguna'],
-            'catsDogs' => ['required', 'in:Gatos,Perros,Todos,De amigos'],
+            'gender' => ['required', 'in:mujer,hombre,no binario'],
+            'looksFor' => ['required', 'in:mujeres,hombres,no binarias,todo'],
+            'ageRange' => ['required', 'in:20-30,25-35,35-45,no importa'],
+            'sexoAffective' => ['required', 'in:monogama,explorar,abierta,beneficios,fluir,casual'],
+            'heartState' => ['required', 'in:maduro,solo,feliz,recuperarse,despechado'],
+            'personalValues' => ['required','array','min:3', 'max:3','in:Honestidad,Respeto,Responsabilidad,Empatía,Integridad,Gratitud,Generosidad,Tolerancia,Solidaridad,Humildad,Perseverancia,Justicia' ],
+            'preferences1' => ['required', 'in:netflix,eventos,gym,escapadas,todas'],
+            'preferences2' => ['required', 'in:alcohol,cafe,agua,ninguna,no alcohol'],
+            'catsDogs' => ['required', 'in:gatos,perros,todos,no gustan'],
         ]);
 
         if ($validator->fails()) {
@@ -52,6 +50,7 @@ class PreferencesController extends Controller
             'datesParents' => $request->input('datesParents'),
             'sexoAffective' => $request->input('sexoAffective'),
             'heartState' => $request->input('heartState'),
+            'personalValues' => $request->input('personalValues'),
             'preferences1' => $request->input('preferences1'),
             'preferences2' => $request->input('preferences2'),
             'catsDogs' => $request->input('catsDogs'),

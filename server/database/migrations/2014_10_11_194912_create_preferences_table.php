@@ -14,17 +14,14 @@ return new class extends Migration
         Schema::create('preferences', function (Blueprint $table) {
             $table->id();
             $table->date('birthdate');
-            $table->enum('ageRange', ['18-25', '26-35', '36-45', 'Más de 45']);
-            $table->enum('gender', ['Hombre', 'Mujer', 'No binario']);
-            $table->enum('looksFor', ['Hombre', 'Mujer', 'No binario']);
-            $table->enum('hasChildren', ['Sí', 'No']);
-            $table->enum('wantsFamily', ['Sí', 'No']);
-            $table->enum('datesParents', ['Sí', 'No', 'No me lo he planteado']);
-            $table->enum('sexoAffective', ['Monógama', 'Abierta', 'Amigos con derecho a roce', 'Lo que surja', 'Casual']);
-            $table->enum('heartState', ['Totalmente roto', 'Con ganas de compartir', 'Se siente solo', 'Feliz y palpitante', 'Despechadísimo']);
-            $table->enum('preferences1', ['Netflix', 'Eventos', 'Deporte', 'Escapadas', 'Todas', 'Otras']);
-            $table->enum('preferences2', ['Alcohol', 'Bebidas calientes', 'Refrescos', 'Según', 'Ninguna']);
-            $table->enum('catsDogs', ['Gatos', 'Perros', 'Todos', 'De amigos']);
+            $table->enum('gender', ['mujer', 'hombre', 'no binario']);$table->enum('looksFor', ['mujeres', 'hombres', 'no binarias','todo']);
+            $table->enum('ageRange', ['20-30', '25-35', '35-45', 'no importa']);
+            $table->enum('sexoAffective', ['monogama', 'explorar', 'abierta', 'beneficios', 'fluir','casual']);
+            $table->enum('heartState', ['maduro', 'solo', 'feliz', 'recuperarse', 'despechado']);
+            $table->json('personalValues');
+            $table->enum('preferences1', ['netflix', 'eventos', 'gym', 'escapadas', 'todas']);
+            $table->enum('preferences2', ['alcohol', 'cafe', 'Refrescos', 'agua', 'ninguna','no alcohol']);
+            $table->enum('catsDogs', ['gatos', 'perros', 'todos', 'no gustan']);
             $table->timestamps();
         });
     }
