@@ -27,7 +27,7 @@ class PreferencesController extends Controller
             'ageRange' => ['required', 'in:20-30,25-35,35-45,no importa'],
             'sexoAffective' => ['required', 'in:monogama,explorar,abierta,beneficios,fluir,casual'],
             'heartState' => ['required', 'in:maduro,solo,feliz,recuperarse,despechado'],
-            'personalValues' => ['required','array','min:3', 'max:3','in:Honestidad,Respeto,Responsabilidad,Empatía,Integridad,Gratitud,Generosidad,Tolerancia,Solidaridad,Humildad,Perseverancia,Justicia' ],
+            'personalValues' => ['required','array','min:3', 'max:3','in:honestidad,respeto,responsabilidad,empatia,integridad,gratitud,generosidad,tolerancia,solidaridad,humildad,perseverancia,justicia'],
             'preferences1' => ['required', 'in:netflix,eventos,gym,escapadas,todas'],
             'preferences2' => ['required', 'in:alcohol,cafe,agua,ninguna,no alcohol'],
             'catsDogs' => ['required', 'in:gatos,perros,todos,no gustan'],
@@ -40,17 +40,15 @@ class PreferencesController extends Controller
         } else {
         
         $user = Auth::user();
+   
         $preference = new Preference([
             'birthdate' => $request->input('birthdate'),
-            'ageRange' => $request->input('ageRange'),
             'gender' => $request->input('gender'),
             'looksFor' => $request->input('looksFor'),
-            'hasChildren' => $request->input('hasChildren'),
-            'wantsFamily' => $request->input('wantsFamily'),
-            'datesParents' => $request->input('datesParents'),
+            'ageRange' => $request->input('ageRange'),
             'sexoAffective' => $request->input('sexoAffective'),
             'heartState' => $request->input('heartState'),
-            'personalValues' => $request->input('personalValues'),
+            'personalValues' => json_encode($request->input('personalValues')),
             'preferences1' => $request->input('preferences1'),
             'preferences2' => $request->input('preferences2'),
             'catsDogs' => $request->input('catsDogs'),
