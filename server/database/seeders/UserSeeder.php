@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -13,6 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $preferences = \App\Models\Preference::all();
         $users = [
             [
                 'name' => 'Laura',
@@ -80,6 +82,12 @@ class UserSeeder extends Seeder
             ], 
             
         ];
-            DB::table('users')->insert($users);
+        foreach ($users as $key => $userData) {
+           
+            $availablePreferences = $preferences->whereNotIn('id', User::pluck('preference_id')->toArray());
+
+            $userData['preference_id'] = $availablePreferences->random()->id;
+            User::create($userData);
+        }
     }
 }
