@@ -24,7 +24,7 @@ return new class extends Migration
             $table->enum('values1', ['amabilidad', 'amistad', 'autenticidad', 'aventura', 'comunicacion', 'conciencia', 'confianza', 'creatividad', 'cuidado', 'desarrollo']);
             $table->enum('values2', ['diversion', 'empatia', 'familia', 'fidelidad', 'generosidad', 'gratitud', 'honestidad', 'humildad', 'integridad', 'inteligencia']);
             $table->enum('values3', ['lealtad', 'libertad', 'optimismo', 'resiliencia', 'respeto', 'responsabilidad', 'afectiva', 'sencillez', 'solidaridad', 'humor', 'valentia']);
-            $table->string('rrss', 7)->nullable();
+            $table->string('rrss', 150)->nullable();
             $table->timestamps();
         });
     }
