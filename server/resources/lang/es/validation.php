@@ -155,7 +155,9 @@ return [
         'ageRange' => 'rango de edad',
         'sexoAffective' => 'de selección',
         'heartState' => 'de selección',
-        'personalValues'=> 'de selección',
+        'values1'=> 'de selección',
+        'values2'=> 'de selección',
+        'values3'=> 'de selección',
         'preferences1' => 'de selección',
         'preferences2' => 'de selección',
         'catsDogs' => 'de selección',
@@ -164,5 +166,4 @@ return [
         'location' => 'ubicación',
         'description' => 'descripción',
     ],
-
 ];
