@@ -155,6 +155,8 @@ return [
         'ageRange' => 'rango de edad',
         'sexoAffective' => 'de selección',
         'heartState' => 'de selección',
+        'hasChildren' => 'de selección',
+        'datesParents' => 'de selección',
         'values1'=> 'de selección',
         'values2'=> 'de selección',
         'values3'=> 'de selección',

@@ -21,12 +21,12 @@ class PreferenceFactory extends Factory // Cambiado a PreferenceFactory en lugar
             'ageRange' => $this->faker->randomElement(['20-30', '25-35', '35-45', 'no importa']),
             'sexoAffective' => $this->faker->randomElement(['monogama', 'explorar', 'abierta', 'beneficios', 'fluir', 'casual']),
             'heartState' => $this->faker->randomElement(['maduro', 'solo', 'feliz', 'recuperarse', 'despechado']),
-            'values1' => $this->faker->randomElement(['honestidad', 'respeto', 'responsabilidad', 'empatia', 'integridad', 'gratitud', 'generosidad', 'tolerancia', 'solidaridad', 'humildad', 'perseverancia', 'justicia']),
-            'values2' => $this->faker->randomElement(['honestidad', 'respeto', 'responsabilidad', 'empatia', 'integridad', 'gratitud', 'generosidad', 'tolerancia', 'solidaridad', 'humildad', 'perseverancia', 'justicia']),
-            'values3' => $this->faker->randomElement(['honestidad', 'respeto', 'responsabilidad', 'empatia', 'integridad', 'gratitud', 'generosidad', 'tolerancia', 'solidaridad', 'humildad', 'perseverancia', 'justicia']),
-            'preferences1' => $this->faker->randomElement(['netflix', 'eventos', 'gym', 'escapadas', 'todas']),
-            'preferences2' => $this->faker->randomElement(['alcohol', 'cafe', 'agua', 'ninguna', 'no alcohol']),
-            'catsDogs' => $this->faker->randomElement(['gatos', 'perros', 'todos', 'no gustan']),
+            'hasChildren' => $this->faker->randomElement(['si', 'no']),
+            'datesParents' => $this->faker->randomElement(['si', 'no','no sabe']),
+            'values1' => $this->faker->randomElement(['amabilidad', 'amistad', 'autenticidad', 'aventura', 'comunicacion', 'conciencia', 'confianza', 'creatividad', 'solidaridad', 'cuidado', 'desarrollo']),
+            'values2' => $this->faker->randomElement(['diversion', 'empatia', 'familia', 'fidelidad', 'generosidad', 'gratitud', 'honestidad', 'humildad', 'integridad', 'inteligencia']),
+            'values3' => $this->faker->randomElement(['lealtad', 'libertad', 'optimismo', 'resiliencia', 'respeto', 'responsabilidad', 'afectiva', 'sencillez', 'solidaridad', 'humor', 'valentia']),
+            'rrss' => $this->faker->regexify('[A-Za-z0-9]{7}'),
         ];
     }
 }

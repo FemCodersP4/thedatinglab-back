@@ -31,12 +31,13 @@ class PreferencesController extends Controller
             'ageRange' => ['required', 'in:20-30,25-35,35-45,no importa'],
             'sexoAffective' => ['required', 'in:monogama,explorar,abierta,beneficios,fluir,casual'],
             'heartState' => ['required', 'in:maduro,solo,feliz,recuperarse,despechado'],
-            'values1' => ['required','in:honestidad,respeto,responsabilidad,empatia,integridad,gratitud,generosidad,tolerancia,solidaridad,humildad,perseverancia,justicia'],
-            'values2' => ['required','in:honestidad,respeto,responsabilidad,empatia,integridad,gratitud,generosidad,tolerancia,solidaridad,humildad,perseverancia,justicia'],
-            'values3' => ['required','in:honestidad,respeto,responsabilidad,empatia,integridad,gratitud,generosidad,tolerancia,solidaridad,humildad,perseverancia,justicia'],
-            'preferences1' => ['required', 'in:netflix,eventos,gym,escapadas,todas'],
-            'preferences2' => ['required', 'in:alcohol,cafe,agua,ninguna,no alcohol'],
-            'catsDogs' => ['required', 'in:gatos,perros,todos,no gustan'],
+            'hasChildren' => ['required', 'in:si,no'],
+            'datesParents' => ['required', 'in:si,no,no sabe'],
+            'values1' => ['required','in:amabilidad,amistad,autenticidad,aventura,comunicacion,conciencia,confianza,creatividad,cuidado,desarrollo'],
+            'values2' => ['required','in:diversion,empatia,familia,fidelidad,generosidad,gratitud,honestidad,humildad,integridad,inteligencia'],
+            'values3' => ['required','in:lealtad,libertad,optimismo,resiliencia,respeto,responsabilidad,afectiva,sencillez,humor,valentia'],
+            'rrss' => ['required', 'string'],
+
         ]);
 
         if ($validator->fails()) {
@@ -54,12 +55,13 @@ class PreferencesController extends Controller
             'ageRange' => $request->input('ageRange'),
             'sexoAffective' => $request->input('sexoAffective'),
             'heartState' => $request->input('heartState'),
+            'hasChildren' => $request->input('hasChildren'),
+            'datesParents' => $request->input('datesParents'),
             'values1' => $request->input('values1'),
             'values2' => $request->input('values2'),
             'values3' => $request->input('values3'),
-            'preferences1' => $request->input('preferences1'),
-            'preferences2' => $request->input('preferences2'),
-            'catsDogs' => $request->input('catsDogs'),
+            'rrss' => $request->input('rrss'),
+
         ]);
 
         $preference->save();
@@ -93,12 +95,12 @@ public function update(Request $request, $id)
             'ageRange' => ['required', 'in:20-30,25-35,35-45,no importa'],
             'sexoAffective' => ['required', 'in:monogama,explorar,abierta,beneficios,fluir,casual'],
             'heartState' => ['required', 'in:maduro,solo,feliz,recuperarse,despechado'],
-            'values1' => ['required', 'in:honestidad,respeto,responsabilidad,empatia,integridad,gratitud,generosidad,tolerancia,solidaridad,humildad,perseverancia,justicia'],
-            'values2' => ['required', 'in:honestidad,respeto,responsabilidad,empatia,integridad,gratitud,generosidad,tolerancia,solidaridad,humildad,perseverancia,justicia'],
-            'values3' => ['required', 'in:honestidad,respeto,responsabilidad,empatia,integridad,gratitud,generosidad,tolerancia,solidaridad,humildad,perseverancia,justicia'],
-            'preferences1' => ['required', 'in:netflix,eventos,gym,escapadas,todas'],
-            'preferences2' => ['required', 'in:alcohol,cafe,agua,ninguna,no alcohol'],
-            'catsDogs' => ['required', 'in:gatos,perros,todos,no gustan'],
+            'hasChildren' => ['required', 'in:si,no'],
+            'datesParents' => ['required', 'in:si,no,no sabe'],
+            'values1' => ['required','in:amabilidad,amistad,autenticidad,aventura,comunicacion,conciencia,confianza,creatividad,solidaridad,cuidado,desarrollo'],
+            'values2' => ['required','in:diversion,empatia,familia,fidelidad,generosidad,gratitud,honestidad,humildad,integridad,inteligencia'],
+            'values3' => ['required','in:lealtad,libertad,optimismo,resiliencia,respeto,responsabilidad,afectiva,sencillez,solidaridad,humor,valentia'],
+            'rrss' => ['required', 'string'],
         ]);
 
         if ($validator->fails()) {

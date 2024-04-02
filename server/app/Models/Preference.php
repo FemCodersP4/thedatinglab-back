@@ -23,13 +23,12 @@ class Preference extends Model
         'ageRange',
         'sexoAffective',
         'heartState',
+        'hasChildren',
+        'datesParents',
         'values1',
         'values2',
         'values3',
-        'preferences1',
-        'preferences2',
-        'catsDogs',
- 
+        'rrss',
     ];
 
     protected $hidden = [
