@@ -14,7 +14,6 @@ class PreferencesSeeder extends Seeder
      */
     public function run()
     {
-        // Utiliza el factory para crear 10 registros de preferencias
-        Preference::factory()->count(10)->create();
+        Preference::factory(8)->create();
     }
 }
