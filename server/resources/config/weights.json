@@ -1,14 +1,14 @@
 {
+    "birthdate": 0,
     "gender": 0,
     "looksFor": 0,
-    "birthdate": 0,
     "ageRange": 0,
-    "hasChildren": 2,
-    "datesParents": 2,
-    "wantsFamily": 1,
+    "values1": 1,
+    "values2": 1,
+    "values3": 1,
     "sexoAffective": 2,
-    "heartState": 1,
-    "preferences1": 1,
+    "heartState": 2,
+    "preferences1": 2,
     "preferences2": 0.5,
     "catsDogs": 0.5
 }
