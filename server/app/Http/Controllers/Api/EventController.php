@@ -33,7 +33,9 @@ class EventController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'date' => 'required|date',
-            'time' => 'required|date_format:H:i:s',
+            'time' => 'required|date_format:H:i',
+            'location'=> 'required|string|max:255',
+            'shortDescription'=> 'required|string|max:500',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
@@ -52,6 +54,8 @@ class EventController extends Controller
         $event = Event::create([
             'title' => $request->input('title'),
             'date' => $request->input('date'),
+            'location'=> $request->input('location'),
+            'shortDescription'=>$request->input('shortDescription'),
             'time' => $request->input('time'),
             'description' => $request->input('description'),
             'image' => $imagePath,
@@ -81,6 +85,8 @@ class EventController extends Controller
             'title' => 'required|string|max:255',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i:s',
+            'location'=> 'required|string|max:255',
+            'shortDescription'=> 'required|string|max:500',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
