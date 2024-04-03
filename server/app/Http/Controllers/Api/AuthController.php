@@ -21,9 +21,9 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'lastname' => 'required|string', 
+            'lastname' => 'required|string',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed', 
+            'password' => 'required|min:6|confirmed',
             'privacyPolicies' => 'required|accepted',
             'over18' => 'required|accepted',
         ]);
@@ -32,7 +32,7 @@ class AuthController extends Controller
             return response()->json([
                 'validation_errors' => $validator->messages(),
             ], 422);
-        } else {    
+        } else {
 
             $preferenceId = $request->input('preference_id');
             $profileId = $request->input('profile_id');
@@ -48,6 +48,7 @@ class AuthController extends Controller
     $user = new User([
         'name' => $request->input('name'),
         'email' => $request->input('email'),
+        'lastname' => $request->input('lastname'),
         'password' => Hash::make($request->input('password')),
         'profile_id' => $profile ? $profile->id : null,
         'preference_id' => $preference ? $preference->id : null,
@@ -58,14 +59,14 @@ $user->save();
         $token = $user->createToken('auth_token')->plainTextToken;
 
         Mail::to($user)->send(new Register($user));
-        
+
         return response()->json([
                 'message' => 'Usuario creado correctamente',
                 'user' => $user,
                 'token' => $token,
             ], 201);
         }
-    } 
+    }
 
     public function login(Request $request)
 {
@@ -110,7 +111,7 @@ $user->save();
     {
         $request->user()->currentAccessToken()->delete();
         return response()->json([
-            'msg' => 'Usuario desconectado exitosamente'	
+            'msg' => 'Usuario desconectado exitosamente'
         ], 200);
     }
 }
