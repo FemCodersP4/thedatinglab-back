@@ -84,7 +84,7 @@ class EventController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'date' => 'required|date',
-            'time' => 'required|date_format:H:i:s',
+            'time' => 'required|date_format:H:i',
             'location'=> 'required|string|max:255',
             'shortDescription'=> 'required|string|max:500',
             'description' => 'required|string',
