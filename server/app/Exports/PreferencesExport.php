@@ -41,6 +41,9 @@ class PreferencesExport implements FromCollection, WithHeadings
             'Valores1',
             'Valores2',
             'Valores3',
+            'Ocio1',
+            'Ocio2',
+            'Gato o perro',
             'RRSS',
         ];
     }

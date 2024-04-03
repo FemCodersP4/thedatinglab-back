@@ -36,6 +36,9 @@ class PreferencesController extends Controller
             'values1' => ['required','in:amabilidad,amistad,autenticidad,aventura,comunicacion,conciencia,confianza,creatividad,cuidado,desarrollo'],
             'values2' => ['required','in:diversion,empatia,familia,fidelidad,generosidad,gratitud,honestidad,humildad,integridad,inteligencia'],
             'values3' => ['required','in:lealtad,libertad,optimismo,resiliencia,respeto,responsabilidad,afectiva,sencillez,humor,valentia'],
+            'prefers1' => ['required','in:netflix,eventos,gym,todas'],
+            'prefers2' => ['required','in:vino,cafe,agua,segun,ninguna'],
+            'catsDogs' => ['required','in:gato,perro,de amigos'],
             'rrss' => ['required', 'string'],
 
         ]);
@@ -60,6 +63,9 @@ class PreferencesController extends Controller
             'values1' => $request->input('values1'),
             'values2' => $request->input('values2'),
             'values3' => $request->input('values3'),
+            'prefers1' => $request->input('prefers1'),
+            'prefers2' => $request->input('prefers2'),
+            'catsDogs' => $request->input('catsDogs'),
             'rrss' => $request->input('rrss'),
 
         ]);
@@ -100,6 +106,9 @@ public function update(Request $request, $id)
             'values1' => ['required','in:amabilidad,amistad,autenticidad,aventura,comunicacion,conciencia,confianza,creatividad,solidaridad,cuidado,desarrollo'],
             'values2' => ['required','in:diversion,empatia,familia,fidelidad,generosidad,gratitud,honestidad,humildad,integridad,inteligencia'],
             'values3' => ['required','in:lealtad,libertad,optimismo,resiliencia,respeto,responsabilidad,afectiva,sencillez,solidaridad,humor,valentia'],
+            'prefers1' => ['required','in:netflix,eventos,gym,todas'],
+            'prefers2' => ['required','in:vino,cafe,agua,segun,ninguna'],
+            'catsDogs' => ['required','in:gato,perro,de amigos'],
             'rrss' => ['required', 'string'],
         ]);
 

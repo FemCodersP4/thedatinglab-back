@@ -28,6 +28,9 @@ class Preference extends Model
         'values1',
         'values2',
         'values3',
+        'prefers1',
+        'prefers2',
+        'catsDogs',
         'rrss',
     ];
 
