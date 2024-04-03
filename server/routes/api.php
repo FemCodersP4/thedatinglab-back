@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\AttendancesController;
 use App\Http\Controllers\PreferencesController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\ExportController;
 use Spatie\Permission\Middleware\RoleMiddleware;
 
 
@@ -30,6 +31,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(functi
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/preferences/{id}', [UserController::class, 'getPreferences']);
     Route::put('/preferences/{id}', [PreferencesController::class, 'update']);
+    Route::get('/export', [ExportController::class, 'export']);
 
 });
 
