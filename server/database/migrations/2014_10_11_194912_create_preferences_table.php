@@ -27,7 +27,7 @@ return new class extends Migration
             $table->enum('prefers1', ['netflix', 'eventos', 'gym', 'resiliencia', 'todas']);
             $table->enum('prefers2', ['vino', 'cafe', 'agua', 'segun', 'ninguna']);
             $table->enum('catsDogs', ['gato', 'perro', 'de amigos']);
-            $table->string('rrss', 150)->nullable();
+            $table->string('rrss', 250)->nullable();
             $table->timestamps();
         });
     }
