@@ -27,7 +27,7 @@ class PreferencesController extends Controller
                         $fail('Tienes que ser mayor de 18 años para ingresar.');
                     } },],
             'gender' => ['required', 'in:mujer,hombre,no binario'],
-            'looksFor' => ['required', 'in:mujeres,hombres,no binarias,todo'],
+            'looksFor' => ['required', 'in:mujer,hombre,no binario,todo'],
             'ageRange' => ['required', 'in:20-30,25-35,35-45,no importa'],
             'sexoAffective' => ['required', 'in:monogama,explorar,abierta,beneficios,fluir,casual'],
             'heartState' => ['required', 'in:maduro,solo,feliz,recuperarse,despechado'],
@@ -91,7 +91,7 @@ public function update(Request $request, $id)
                 },
             ],
             'gender' => ['required', 'in:mujer,hombre,no binario'],
-            'looksFor' => ['required', 'in:mujeres,hombres,no binarias,todo'],
+            'looksFor' => ['required', 'in:mujer,hombre,no binario,todo'],
             'ageRange' => ['required', 'in:20-30,25-35,35-45,no importa'],
             'sexoAffective' => ['required', 'in:monogama,explorar,abierta,beneficios,fluir,casual'],
             'heartState' => ['required', 'in:maduro,solo,feliz,recuperarse,despechado'],

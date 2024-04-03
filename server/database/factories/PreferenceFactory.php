@@ -17,7 +17,7 @@ class PreferenceFactory extends Factory // Cambiado a PreferenceFactory en lugar
         return [
             'birthdate' => $this->faker->date(),
             'gender' => $this->faker->randomElement(['mujer', 'hombre', 'no binario']),
-            'looksFor' => $this->faker->randomElement(['mujeres', 'hombres', 'no binarias', 'todo']),
+            'looksFor' => $this->faker->randomElement(['mujer', 'hombre', 'no binario', 'todo']),
             'ageRange' => $this->faker->randomElement(['20-30', '25-35', '35-45', 'no importa']),
             'sexoAffective' => $this->faker->randomElement(['monogama', 'explorar', 'abierta', 'beneficios', 'fluir', 'casual']),
             'heartState' => $this->faker->randomElement(['maduro', 'solo', 'feliz', 'recuperarse', 'despechado']),

@@ -8,7 +8,6 @@
     "values3": 1,
     "sexoAffective": 2,
     "heartState": 2,
-    "preferences1": 2,
-    "preferences2": 0.5,
-    "catsDogs": 0.5
+    "datesParents": 2,
+    "hasChildren": 1
 }
