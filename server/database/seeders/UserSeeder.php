@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Preference;
+use App\Models\Profile;
 
 class UserSeeder extends Seeder
 {
@@ -14,7 +16,9 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $preferences = \App\Models\Preference::all();
+        $preferences = Preference::all();
+        $profiles = Profile::all();
+        
         $users = [
             [
                 'name' => 'Laura',
@@ -31,7 +35,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '0',
                 'over18' => '0',
-            ], 
+            ],
             [
                 'name' => 'Gaby',
                 'lastname' =>'Garcia',
@@ -39,7 +43,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '0',
                 'over18' => '0',
-            ], 
+            ],
             [
                 'name' => 'Debora',
                 'lastname' =>'Garcia',
@@ -47,7 +51,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '0',
                 'over18' => '0',
-            ], 
+            ],
             [
                 'name' => 'Fefy',
                 'lastname' =>'Garcia',
@@ -55,7 +59,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '0',
                 'over18' => '0',
-            ], 
+            ],
             [
                 'name' => 'Jess',
                 'lastname' =>'Garcia',
@@ -63,7 +67,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '0',
                 'over18' => '0',
-            ], 
+            ],
             [
                 'name' => 'Hemi',
                 'lastname' =>'Garcia',
@@ -71,7 +75,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '0',
                 'over18' => '0',
-            ], 
+            ],
             [
                 'name' => 'Thamy',
                 'lastname' =>'Garcia',
@@ -79,14 +83,15 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'privacyPolicies' => '0',
                 'over18' => '0',
-            ], 
-            
+            ],
+
         ];
         foreach ($users as $key => $userData) {
-           
+
             $availablePreferences = $preferences->whereNotIn('id', User::pluck('preference_id')->toArray());
 
             $userData['preference_id'] = $availablePreferences->random()->id;
+            $userData['profile_id'] = $profiles->random()->id;
             User::create($userData);
         }
     }

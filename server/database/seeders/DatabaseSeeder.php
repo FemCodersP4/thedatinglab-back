@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PreferencesSeeder::class,
+            ProfileSeeder::class,
             UserSeeder::class,
             EventsSeeder::class,
-            ProfileSeeder::class,
+
 
         ]);
     }
