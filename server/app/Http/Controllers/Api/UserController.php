@@ -32,5 +32,21 @@ class UserController extends Controller
             return response()->json(['message' => 'No se encontraron preferencias para el usuario.'], 404);
         }
     }
-    
+
+    public function destroy($userId)
+    {
+        $user = User::find($userId);
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'Usuario no encontrado',
+            ], 404);
+        }
+
+        $user->delete();
+
+        return response()->json([
+            'message' => 'Usuario eliminado con éxito',
+        ], 200);
+    }
 }
