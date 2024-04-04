@@ -65,7 +65,7 @@ class EventController extends Controller
         $event->user()->associate($adminUser);
         $event->save();
 
-        return response()->json(['message' => 'Event created successfully', 'event' => $event]);
+        return response()->json(['message' => 'Evento creado exitosamente', 'event' => $event]);
     }
 
     /**
@@ -101,7 +101,7 @@ class EventController extends Controller
 
         $event->update($validatedData);
 
-        return response()->json(['message' => 'Event updated successfully', 'event' => $event]);
+        return response()->json(['message' => 'Evento actualizado exitosamente', 'event' => $event]);
     }
 
     /**

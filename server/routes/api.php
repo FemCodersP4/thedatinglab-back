@@ -26,7 +26,7 @@ use Spatie\Permission\Middleware\RoleMiddleware;
 */
 Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(function () {
     Route::post('/event', [EventController::class, 'store']);
-    Route::post('/event/{event}', [EventController::class, 'update']);
+    Route::put('/event/{id}', [EventController::class, 'update']);
     Route::delete('event/{event}', [EventController::class, 'destroy']);
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/preferences/{id}', [UserController::class, 'getPreferences']);
