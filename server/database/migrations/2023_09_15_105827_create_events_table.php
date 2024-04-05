@@ -17,6 +17,8 @@ return new class extends Migration
             $table->date('date');
             $table->time('time');
             $table->string('title');
+            $table->string('shortDescription');
+            $table->string('location');
             $table->string('description');
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->enum('privacy', ['public', 'private'])->default('public');

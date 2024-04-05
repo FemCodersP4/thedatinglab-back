@@ -3,11 +3,15 @@
     "gender": 0,
     "looksFor": 0,
     "ageRange": 0,
-    "values1": 1,
-    "values2": 1,
-    "values3": 1,
+    "values1": 0.75,
+    "values2": 0.75,
+    "values3": 0.75,
+    "prefers1":1,
+    "prefers2":1,
+    "catsDogs":0.75,
     "sexoAffective": 2,
     "heartState": 2,
-    "datesParents": 2,
-    "hasChildren": 1
+    "datesParents": 1,
+    "hasChildren": 0,
+    "rrss":1
 }

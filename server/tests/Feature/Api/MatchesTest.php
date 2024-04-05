@@ -17,24 +17,24 @@ class MatchesTest extends TestCase
 
     public function test_unauthenticated_user_cannot_get_matches()
     {
-        
+
         $response = $this->getJson('api/matching-users');
 
-      
+
         $response->assertStatus(401);
     }
 
 
     public function test_user_cannot_get_matches_without_preference()
     {
-        
+
         $user = User::create([
             "name" => "Jane Doe",
             "email" => "jane@example.com",
             "password" => Hash::make("password"),
         ]);
 
-        
+
         Sanctum::actingAs($user);
 
         $response = $this->getJson('/api/matching-users');
@@ -45,36 +45,39 @@ class MatchesTest extends TestCase
 
     public function test_user_cannot_get_empty_matches()
     {
-       
+
         $user = User::factory()->create([
             "name" => "Alice Doe",
             "email" => "alice@example.com",
             "password" => Hash::make("password"),
         ]);
 
-      
+
         $preference = [
             'birthdate' => '1990-01-01',
-            'ageRange' => '26-35',
-            'gender' => 'Hombre',
-            'looksFor' => 'Mujer',
-            'hasChildren' => 'No',
-            'wantsFamily' => 'Sí',
-            'datesParents' => 'Sí',
-            'sexoAffective' => 'Monógama',
-            'heartState' => 'Con ganas de compartir',
-            'preferences1' => 'Netflix',
-            'preferences2' => 'Alcohol',
-            'catsDogs' => 'Perros',
+            'gender' => 'hombre',
+            'looksFor' => 'mujer',
+            'ageRange' => '25-35',
+            'sexoAffective' => 'monogama',
+            'heartState' => 'maduro',
+            'hasChildren' => 'no',
+            'datesParents' => 'no',
+            'values1' => 'amabilidad',
+            'values2' => 'diversion',
+            'values3' => 'lealtad',
+            'prefers1' => 'netflix',
+            'prefers2' => 'vino',
+            'catsDogs' => 'perro',
+            'rrss' =>'asdfds',
         ];
 
-       
+
         $user->preference()->create($preference);
 
-        
+
         Sanctum::actingAs($user);
 
-       
+
         $response = $this->getJson('api/matching-users');
 
         $response->assertStatus(404);

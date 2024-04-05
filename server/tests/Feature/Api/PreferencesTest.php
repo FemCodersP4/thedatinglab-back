@@ -21,17 +21,20 @@ class PreferencesTest extends TestCase
 
         $data = [
             'birthdate' => '1990-01-01',
-            'ageRange' => '20-30',
             'gender' => 'hombre',
-            'looksFor' => 'mujeres',
-            'values1' => 'honestidad',
-            'values2' => 'respeto',
-            'values3' => 'responsabilidad',
+            'looksFor' => 'mujer',
+            'ageRange' => '25-35',
             'sexoAffective' => 'monogama',
-            'heartState' => 'feliz',
-            'preferences1' => 'netflix',
-            'preferences2' => 'alcohol',
-            'catsDogs' => 'gatos',
+            'heartState' => 'maduro',
+            'hasChildren' => 'no',
+            'datesParents' => 'no',
+            'values1' => 'amabilidad',
+            'values2' => 'diversion',
+            'values3' => 'lealtad',
+            'prefers1' => 'netflix',
+            'prefers2' => 'vino',
+            'catsDogs' => 'perro',
+            'rrss' =>'asdfds',
         ];
 
         $response = $this->postJson('api/preferences', $data);

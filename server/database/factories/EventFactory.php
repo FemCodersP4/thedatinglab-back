@@ -3,10 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Event;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Event>
- */
 class EventFactory extends Factory
 {
     /**
@@ -17,15 +15,14 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => fake()->imageUrl(),
-            'date' => fake()->date(),
-            'time' => fake()->time(),
-            'title' => fake()->sentence(),
-            'description' => fake()->paragraph(), 
-            'user_id' => function () {
-                return \App\Models\User::factory()->create()->id; 
-            },
-            'privacy' => $this->faker->randomElement(['public', 'private']),           
+            'image' => 'uploads/test1.jpg',
+            'date' => $this->faker->date(),
+            'time' => $this->faker->time('H:i'),
+            'location' => $this->faker->city(), // Genera una ciudad aleatoria
+            'title' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
+            'shortDescription' => $this->faker->paragraph(),
+            'user_id' => '1'
         ];
     }
 }
