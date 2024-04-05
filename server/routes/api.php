@@ -24,6 +24,7 @@ use Spatie\Permission\Middleware\RoleMiddleware;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
 Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(function () {
     Route::post('/event', [EventController::class, 'store']);
     Route::put('/event/{id}', [EventController::class, 'update']);
@@ -32,7 +33,6 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(functi
     Route::get('/preferences/{id}', [UserController::class, 'getPreferences']);
     Route::put('/preferences/{id}', [PreferencesController::class, 'update']);
     Route::get('/export', [ExportController::class, 'export']);
-
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -43,6 +43,7 @@ Route::get('/event', [EventController::class, 'index']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/event/{event}', [EventController::class, 'show']);
+Route::delete('/user/{id}', [UserController::class, 'destroy']);
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -55,5 +56,4 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/event/attendance/{id}', [AttendancesController::class, 'confirmAttendance']);
     Route::get('/event/attendance/{id}', [AttendancesController::class, 'eventAttendees']);
     Route::get('/event/user/{id}', [AttendancesController::class, 'getEventsForUser']);
-
 });
