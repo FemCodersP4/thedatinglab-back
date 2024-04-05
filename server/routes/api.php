@@ -42,8 +42,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/event', [EventController::class, 'index']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/event/{event}', [EventController::class, 'show']);
-Route::delete('/user/{id}', [UserController::class, 'destroy']);
+
+
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -56,4 +56,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/event/attendance/{id}', [AttendancesController::class, 'confirmAttendance']);
     Route::get('/event/attendance/{id}', [AttendancesController::class, 'eventAttendees']);
     Route::get('/event/user/{id}', [AttendancesController::class, 'getEventsForUser']);
+    Route::get('/event/{event}', [EventController::class, 'show']);
+    Route::delete('/user/{id}', [UserController::class, 'destroy']);
 });

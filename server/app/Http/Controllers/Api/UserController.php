@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:admin')->except('destroy', 'show');
+        $this->middleware('role:admin')->except('destroy');
     }
     public function index()
     {

@@ -30,6 +30,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'date' => 'required|date',
@@ -68,17 +69,21 @@ class EventController extends Controller
         return response()->json(['message' => 'Evento creado exitosamente', 'event' => $event]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Event $event)
-    {
-        return response()->json($event);
-    }
+    public function show($id)
+{
+    if (Auth::check()) {
+        $event = Event::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
+        if ($event) {
+            return response()->json($event);
+        } else {
+            return response()->json(['error' => 'Evento no encontrado'], 404);
+        }
+    } else {
+        return response()->json(['error' => 'No autorizado'], 401);
+    }
+}
+
     public function update(Request $request, Event $event)
     {
         $validatedData = $request->validate([
@@ -104,9 +109,6 @@ class EventController extends Controller
         return response()->json(['message' => 'Evento actualizado exitosamente', 'event' => $event]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Event $event)
     {
         if ($event->image) {
