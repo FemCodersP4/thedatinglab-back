@@ -21,8 +21,9 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
+            'lastname' => 'required|string',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
             'privacyPolicies' => 'required|accepted',
             'over18' => 'required|accepted',
         ]);
@@ -31,85 +32,87 @@ class AuthController extends Controller
             return response()->json([
                 'validation_errors' => $validator->messages(),
             ], 422);
-        } else {    
+        } else {
 
             $preferenceId = $request->input('preference_id');
             $profileId = $request->input('profile_id');
 
-    if ($preferenceId !== null && $profileId !== null) {
-        $preference = Preference::find($preferenceId);
-        $profile = Profile::find($profileId);
-    } else {
-        $preference = null;
-        $profile = null;
-    }
+            if ($preferenceId !== null && $profileId !== null) {
+                $preference = Preference::find($preferenceId);
+                $profile = Profile::find($profileId);
+            } else {
+                $preference = null;
+                $profile = null;
+            }
 
-    $user = new User([
-        'name' => $request->input('name'),
-        'email' => $request->input('email'),
-        'password' => Hash::make($request->input('password')),
-        'profile_id' => $profile ? $profile->id : null,
-        'preference_id' => $preference ? $preference->id : null,
-    ]);
+            $user = new User([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'lastname' => $request->input('lastname'),
+                'password' => Hash::make($request->input('password')),
+                'profile_id' => $profile ? $profile->id : null,
+                'preference_id' => $preference ? $preference->id : null,
+            ]);
 
-$user->save();
+            $user->save();
 
-        $token = $user->createToken('auth_token')->plainTextToken;
+            $token = $user->createToken('auth_token')->plainTextToken;
 
-        Mail::to($user)->send(new Register($user));
-        
-        return response()->json([
+            Mail::to($user)->send(new Register($user));
+
+            return response()->json([
                 'message' => 'Usuario creado correctamente',
                 'user' => $user,
                 'token' => $token,
             ], 201);
         }
-    } 
+    }
 
     public function login(Request $request)
-{
-    $validator = Validator::make($request->all(), [
-        'email' => 'required|email',
-        'password' => 'required'
-    ]);
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
-    if ($validator->fails()) {
+        if ($validator->fails()) {
+            return response()->json([
+                'validation_errors' => $validator->messages(),
+            ], 422);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response()->json([
+                'msg' => 'Usuario o contraseña incorrectos'
+            ], 401);
+        }
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        $cookie = cookie('token', $token, 60 * 24);
+
+        $isAdmin = $user->hasRole('admin');
+
         return response()->json([
-            'validation_errors' => $validator->messages(),
-        ], 422);
+            'msg' => 'Usuario conectado exitosamente',
+            'user' => [
+                'email' => $user->email,
+                'name' => $user->name,
+                'isAdmin' => $isAdmin,
+                'profile_id' => $user->profile_id,
+                'id' => $user->id,
+            ],
+            'token' => $token
+        ], 200)->withCookie($cookie);
     }
-
-    $user = User::where('email', $request->email)->first();
-
-    if (!$user || !Hash::check($request->password, $user->password)) {
-        return response()->json([
-            'msg' => 'Usuario o contraseña incorrectos'
-        ], 401);
-    }
-
-    $token = $user->createToken('auth_token')->plainTextToken;
-
-    $cookie = cookie('token', $token, 60 * 24);
-
-    $isAdmin = $user->hasRole('admin');
-
-    return response()->json([
-        'msg' => 'Usuario conectado exitosamente',
-        'user' => [
-            'email' => $user->email,
-            'isAdmin' => $isAdmin,
-            'profile_id' => $user->profile_id,
-            'id' => $user->id,
-        ],
-        'token' => $token
-    ], 200)->withCookie($cookie);
-}
 
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
         return response()->json([
-            'msg' => 'Usuario desconectado exitosamente'	
+            'msg' => 'Usuario desconectado exitosamente'
         ], 200);
     }
 }

@@ -153,11 +153,13 @@ return [
         'password' => 'contraseña',
         'birthdate' => 'fecha de nacimiento',
         'ageRange' => 'rango de edad',
-        'hasChildren' => 'de selección',
-        'wantsFamily' => 'de selección',
-        'datesParents' => 'de selección',
         'sexoAffective' => 'de selección',
         'heartState' => 'de selección',
+        'hasChildren' => 'de selección',
+        'datesParents' => 'de selección',
+        'values1'=> 'de selección',
+        'values2'=> 'de selección',
+        'values3'=> 'de selección',
         'preferences1' => 'de selección',
         'preferences2' => 'de selección',
         'catsDogs' => 'de selección',
@@ -166,5 +168,4 @@ return [
         'location' => 'ubicación',
         'description' => 'descripción',
     ],
-
 ];

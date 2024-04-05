@@ -12,7 +12,7 @@ class MatchingController extends Controller
         try {
             $user = Auth::user();
 
-            $userPreference = $user->preference; 
+            $userPreference = $user->preference;
 
             if (!$user->preference) {
                 return response()->json(['type' => 'preferences'], 404);
@@ -78,7 +78,7 @@ private function calculateMatchingPercentage($userPreference, $matchPreference, 
 
     foreach ($this->getPreferenceFields($userPreference, $weights) as $field) {
         if ($userPreference->$field === $matchPreference->$field) {
-            $matchingFields += $weights[$field]; 
+            $matchingFields += $weights[$field];
         }
     }
 

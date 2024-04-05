@@ -24,9 +24,11 @@ class MailTest extends TestCase
         Mail::fake();
 
         $userData = [
-            'name' => 'John Doe',
+            'name' => 'John',
+            'lastname' => 'Doe',
             'email' => 'john@example.com',
             'password' => 'password',
+            'password_confirmation' => 'password',
             'privacyPolicies' => true,
             'over18' => true,
         ];

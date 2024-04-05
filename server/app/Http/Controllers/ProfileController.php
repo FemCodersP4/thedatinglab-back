@@ -16,8 +16,8 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'description' => 'required|string|max:255',
-            'vitalMoment' => 'required|string|max:255',
+            'description' => 'required|string|max:300',
+            'vitalMoment' => 'required|string|max:300',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
@@ -71,7 +71,7 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
-    
+
         $profile = Profile::find($id);
 
         if (!$profile) {
@@ -80,7 +80,7 @@ class ProfileController extends Controller
             ], 404);
         }
 
-    
+
         $user = Auth::user();
         if ($profile->id !== $user->profile->id) {
             return response()->json([
@@ -88,7 +88,7 @@ class ProfileController extends Controller
             ], 403);
         }
 
-    
+
         if ($request->has('description')) {
             $profile->description = $request->input('description');
         }
@@ -97,7 +97,7 @@ class ProfileController extends Controller
             $profile->vitalMoment = $request->input('vitalMoment');
         }
 
-        
+
         if ($request->hasFile('image')) {
             $imageName = Str::random(32) . "." . $request->file('image')->getClientOriginalExtension();
             Storage::disk('public')->put($imageName, file_get_contents($request->file('image')));
@@ -124,9 +124,9 @@ class ProfileController extends Controller
             $query->where('user_id', $user_id);
         })->get();
 
-    
+
         return response()->json(['events' => $event], 200);
     }
-    
+
 
 }
