@@ -103,6 +103,7 @@ class AuthController extends Controller
                 'isAdmin' => $isAdmin,
                 'profile_id' => $user->profile_id,
                 'id' => $user->id,
+                'profile_image' => $user->profile->image,
             ],
             'token' => $token
         ], 200)->withCookie($cookie);
