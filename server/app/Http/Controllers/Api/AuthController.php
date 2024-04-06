@@ -95,16 +95,20 @@ class AuthController extends Controller
 
         $isAdmin = $user->hasRole('admin');
 
+        $userData = [
+            'email' => $user->email,
+            'name' => $user->name,
+            'isAdmin' => $isAdmin,
+            'id' => $user->id,
+        ];
+
+        if ($user->profile) {
+            $userData['profile_image'] = $user->profile->image;
+        }
+
         return response()->json([
             'msg' => 'Usuario conectado exitosamente',
-            'user' => [
-                'email' => $user->email,
-                'name' => $user->name,
-                'isAdmin' => $isAdmin,
-                'profile_id' => $user->profile_id,
-                'id' => $user->id,
-                'profile_image' => $user->profile->image,
-            ],
+            'user' => $userData,
             'token' => $token
         ], 200)->withCookie($cookie);
     }
