@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class AttendanceExport implements FromCollection, WithHeadings
 {
-    protected $attendees;
-
-    public function __construct(Collection $attendees)
-    {
-        $this->attendees = $attendees;
-    }
 
     public function collection()
     {

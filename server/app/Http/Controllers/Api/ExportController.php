@@ -20,16 +20,8 @@ class ExportController extends Controller
         return Excel::download(new PreferencesExport, 'preferences.xlsx');
     }
 
-    public function exportEventAttendance($eventId)
+    public function exportEventAttendance()
     {
-        $event = Event::find($eventId);
-
-        if (!$event) {
-            return response()->json(['message' => 'Evento no encontrado'], 404);
-        }
-
-        $attendees = $event->confirmAttendance()->with('profile')->get();
-
-        return Excel::download(new AttendanceExport($attendees), 'event_attendance.xlsx');
+        return Excel::download(new AttendanceExport(), 'event_attendance.xlsx');
     }
 }
