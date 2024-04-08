@@ -16,8 +16,8 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'description' => 'required|string|max:300',
-            'vitalMoment' => 'required|string|max:300',
+            'description' => 'required|string|max:255',
+            'vitalMoment' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
@@ -30,7 +30,7 @@ class ProfileController extends Controller
 
             $imageName = Str::random(32).".".$request->image->getClientOriginalExtension();
 
-            Storage::disk('public')->put($imageName, file_get_contents($request->file('image')));
+            Storage::disk('public')->put('images/' . $imageName, file_get_contents($request->file('image')));
 
             $profile = new Profile([
                 'description' => $request->input('description'),
@@ -52,29 +52,26 @@ class ProfileController extends Controller
     }
 
     public function show(string $id)
-{
-    $profile = Profile::find($id);
+    {
+        $profile = Profile::find($id);
 
-    if (!$profile) {
-        return response()->json([
+        if (!$profile) {
+            return response()->json([
             'message' => 'Perfil no encontrado',
-        ], 404);
-    }
+            ], 404);
+        }
 
-    $userName = null;
-    if ($profile->user) {
         $userName = $profile->user->name;
-    }
 
     return response()->json([
         'profile' => $profile,
         'userName' => $userName
     ], 200);
-}
+    }
 
     public function update(Request $request, $id)
     {
-
+    
         $profile = Profile::find($id);
 
         if (!$profile) {
@@ -83,7 +80,7 @@ class ProfileController extends Controller
             ], 404);
         }
 
-
+    
         $user = Auth::user();
         if ($profile->id !== $user->profile->id) {
             return response()->json([
@@ -91,7 +88,7 @@ class ProfileController extends Controller
             ], 403);
         }
 
-
+    
         if ($request->has('description')) {
             $profile->description = $request->input('description');
         }
@@ -100,10 +97,15 @@ class ProfileController extends Controller
             $profile->vitalMoment = $request->input('vitalMoment');
         }
 
-
+        
         if ($request->hasFile('image')) {
             $imageName = Str::random(32) . "." . $request->file('image')->getClientOriginalExtension();
-            Storage::disk('public')->put($imageName, file_get_contents($request->file('image')));
+    
+            // Eliminar la imagen anterior del disco de almacenamiento
+            Storage::delete('public/images/' . $profile->image);
+    
+            // Guardar la nueva imagen en una carpeta específica
+            $path = $request->file('image')->storeAs('public/images', $imageName);
             $profile->image = $imageName;
         }
 
