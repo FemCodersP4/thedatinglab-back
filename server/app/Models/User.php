@@ -59,13 +59,17 @@ public function preference() {
 
 public static function findMatchesForUser($user)
     {
-        return self::whereHas('preference', function ($query) use ($user) {
-            $query->where('gender', $user->preference->looksFor)
-                ->where('looksFor', $user->preference->gender)
-                ->where('ageRange', $user->preference->ageRange);
-        })
-        ->where('id', '!=', $user->id)
-        ->get();
+        try {
+            return self::whereHas('preference', function ($query) use ($user) {
+                $query->where('gender', $user->preference->looksFor)
+                    ->where('looksFor', $user->preference->gender)
+                    ->where('ageRange', $user->preference->ageRange);
+            })
+            ->where('id', '!=', $user->id)
+            ->get();
+        } catch (\Exception $e) {
+            throw new \RuntimeException("Error al encontrar coincidencias para el usuario: " . $e->getMessage());
+        }
     }
 
     public function confirmAttendance()

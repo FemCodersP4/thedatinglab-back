@@ -12,39 +12,41 @@ class MatchingController extends Controller
         try {
             $user = Auth::user();
 
-            $userPreference = $user->preference;
-
             if (!$user->preference) {
-                return response()->json(['type' => 'preferences'], 404);
+                return response()->json(['msg' => 'El usuario no tiene preferencias'], 404);
             }
 
             $matches = User::findMatchesForUser($user);
 
-            $response = [];
-
             if ($matches->isEmpty()) {
-                return response()->json(['type' => 'matches'], 404);
+                return response()->json(['msg' => 'No se han encontrado perfiles que superen el 70% de compatibilidad'], 404);
             }
 
-            $weights = json_decode(file_get_contents(resource_path('config/weights.json')), true);
-
-            foreach ($matches as $match) {
-                $matchingPercentage = ceil($this->calculateMatchingPercentage($userPreference, $match->preference, $weights));
-
-                $response[] = [
-                    'name' => $match->name,
-                    'birthdate' => $match->preference->birthdate,
-                    'description' => $match->profile->description,
-                    'image' => $match->profile->image,
-                    'matchingPercentage' => $matchingPercentage,
-                ];
-            }
-
+            $response = $this->buildResponse($matches, $user->preference);
             return response()->json(['matches' => $response], 200);
 
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+            return response()->json(['error' => 'Error interno del servidor'], 500);
         }
+    }
+
+    private function buildResponse($matches, $userPreference)
+    {
+        $response = [];
+        $weights = json_decode(file_get_contents(resource_path('config/weights.json')), true);
+
+        foreach ($matches as $match) {
+            $matchingPercentage = $this->calculateMatchingPercentage($userPreference, $match->preference, $weights);
+            $response[] = [
+                'name' => $match->name,
+                'birthdate' => $match->preference->birthdate,
+                'description' => $match->profile->description,
+                'image' => $match->profile->image,
+                'matchingPercentage' => $matchingPercentage,
+            ];
+        }
+
+        return $response;
     }
 
     private function getExcludedFields($weights)
