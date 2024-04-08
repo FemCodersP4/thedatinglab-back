@@ -52,22 +52,25 @@ class ProfileController extends Controller
     }
 
     public function show(string $id)
-    {
-        $profile = Profile::find($id);
+{
+    $profile = Profile::find($id);
 
-        if (!$profile) {
-            return response()->json([
+    if (!$profile) {
+        return response()->json([
             'message' => 'Perfil no encontrado',
-            ], 404);
-        }
+        ], 404);
+    }
 
+    $userName = null;
+    if ($profile->user) {
         $userName = $profile->user->name;
+    }
 
     return response()->json([
         'profile' => $profile,
         'userName' => $userName
     ], 200);
-    }
+}
 
     public function update(Request $request, $id)
     {
