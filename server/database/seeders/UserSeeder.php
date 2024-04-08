@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     {
         $preferences = Preference::all();
         $profiles = Profile::all();
-        
+
         $users = [
             [
                 'name' => 'Laura',
@@ -89,9 +89,10 @@ class UserSeeder extends Seeder
         foreach ($users as $key => $userData) {
 
             $availablePreferences = $preferences->whereNotIn('id', User::pluck('preference_id')->toArray());
+            $availableProfile = $profiles->whereNotIn('id', User::pluck('profile_id')->toArray());
 
             $userData['preference_id'] = $availablePreferences->random()->id;
-            $userData['profile_id'] = $profiles->random()->id;
+            $userData['profile_id'] = $availableProfile->random()->id;
             User::create($userData);
         }
     }
