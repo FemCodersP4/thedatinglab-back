@@ -63,13 +63,19 @@ public static function findMatchesForUser($user)
         return self::whereHas('preference', function ($query) use ($user) {
             $query->where('ageRange', $user->preference->ageRange)
                 ->where(function ($query) use ($user) {
-                    if ($user->preference->gender === 'mujer') {
-                        $query->where('looksFor', 'hombre')
-                            ->orWhere('looksFor', 'todo')
-                            ->orWhere('looksFor', 'mujer');
-                    } elseif ($user->preference->gender === 'hombre') {
-                        $query->where('looksFor', 'hombre')
-                            ->orWhere('looksFor', 'todo');
+                    if ($user->preference->looksFor === 'mujer') {
+                        $query->where('gender', 'mujer');
+
+                    } elseif ($user->preference->looksFor === 'hombre') {
+                        $query->where('gender', 'hombre');
+
+                    } elseif ($user->preference->looksFor === 'todo') {
+                        $query->where('gender', 'hombre')
+                            ->orWhere('gender', 'mujer')
+                            ->orWhere('gender', 'no binario');
+
+                    } elseif ($user->preference->looksFor === 'no binario') {
+                        $query->where('gender', 'no binario');
                     }
                 });
         })
