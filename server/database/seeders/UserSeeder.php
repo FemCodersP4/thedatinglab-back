@@ -18,6 +18,11 @@ class UserSeeder extends Seeder
     {
         $preferences = Preference::all();
         $profiles = Profile::all();
+        
+        if ($preferences->isEmpty() || $profiles->isEmpty()) {
+            $this->command->info('No hay preferencias o perfiles disponibles en la base de datos.');
+            return;
+        }
 
         $users = [
             [
@@ -151,13 +156,31 @@ class UserSeeder extends Seeder
 
         ];
         foreach ($users as $key => $userData) {
-
-            $availablePreferences = $preferences->whereNotIn('id', User::pluck('preference_id')->toArray());
-            $availableProfile = $profiles->whereNotIn('id', User::pluck('profile_id')->toArray());
-
-            $userData['preference_id'] = $availablePreferences->random()->id;
-            $userData['profile_id'] = $availableProfile->random()->id;
-            User::create($userData);
+            // Verificar si hay preferencias y perfiles disponibles
+            if ($preferences->isEmpty() || $profiles->isEmpty()) {
+                $this->command->info('No hay preferencias o perfiles disponibles para asignar al usuario.');
+                break;
+            }
+        
+            // Obtener un índice aleatorio para seleccionar una preferencia y un perfil
+            $preferenceIndex = rand(0, $preferences->count() - 1);
+            $profileIndex = rand(0, $profiles->count() - 1);
+        
+            // Obtener la preferencia y el perfil correspondientes a los índices aleatorios
+            $availablePreference = $preferences->splice($preferenceIndex, 1)->first();
+            $availableProfile = $profiles->splice($profileIndex, 1)->first();
+        
+            // Crea el usuario con los datos y las asignaciones
+            User::create([
+                'name' => $userData['name'],
+                'lastname' => $userData['lastname'],
+                'email' => $userData['email'],
+                'password' => $userData['password'],
+                'privacyPolicies' => $userData['privacyPolicies'],
+                'over18' => $userData['over18'],
+                'preference_id' => $availablePreference->id, // Asigna el ID de la preferencia
+                'profile_id' => $availableProfile->id, // Asigna el ID del perfil
+            ]);
         }
     }
 }
