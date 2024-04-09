@@ -31,12 +31,14 @@ class MatchingController extends Controller
     }
 
     private function buildResponse($matches, $userPreference)
-    {
-        $response = [];
-        $weights = json_decode(file_get_contents(resource_path('config/weights.json')), true);
+{
+    $response = [];
+    $weights = json_decode(file_get_contents(resource_path('config/weights.json')), true);
 
-        foreach ($matches as $match) {
-            $matchingPercentage = $this->calculateMatchingPercentage($userPreference, $match->preference, $weights);
+    foreach ($matches as $match) {
+        $matchingPercentage = $this->calculateMatchingPercentage($userPreference, $match->preference, $weights);
+
+        if ($matchingPercentage > 70) {
             $response[] = [
                 'name' => $match->name,
                 'birthdate' => $match->preference->birthdate,
@@ -45,9 +47,10 @@ class MatchingController extends Controller
                 'matchingPercentage' => $matchingPercentage,
             ];
         }
-
-        return $response;
     }
+
+    return $response;
+}
 
     private function getExcludedFields($weights)
 {
