@@ -32,17 +32,29 @@ DatingLab is a platform designed to streamline connections between individuals s
 
 
     
-## Diagram
+## ✨ Database Diagram ✨
 
 ![Screenshot](https://github.com/Jasz-17/im-genes/blob/main/image%2034.png?raw=true)
 
 
-## 🛠️ Technologies Used
+## 💻 Technologies Used
 
-Backend:
-- PHP -> 8.0
-- Laravel -> 10.0.0
-- PHPUnit -> 7.1
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)&nbsp;
+[![PHP](https://img.shields.io/badge/PHP-v8.0-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)&nbsp;
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)&nbsp;
+[![Laravel](https://img.shields.io/badge/Laravel-v10.0.0-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
+
+
+
+
+##  🛠️ Tools
+
+[![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-8A2BE2?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)&nbsp;
+[![XAMPP](https://img.shields.io/badge/XAMPP-FF0000?style=for-the-badge&logo=xampp&logoColor=white)](https://www.apachefriends.org/index.html)&nbsp;
+[![Postman](https://img.shields.io/badge/Postman-FF7034?style=for-the-badge&logo=postman&logoColor=white)](https://www.postman.com/)&nbsp;
+[![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)](https://trello.com/)
+
+
 ## 🔗Authors
 
 -  Hemmi: [Github](https://github.com/HemiCastillo), [LinkedIn](https://www.linkedin.com/in/hemileidis/)
@@ -60,8 +72,6 @@ Backend:
 -  Gabriela: [Github](https://github.com/annaLucian), [LinkedIn](https://www.linkedin.com/in/gabriela-poves-navarro/)
 
 -  Carolina: [Github](https://github.com/FemCodersP4/thedatinglab-front/blob/main), [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main)
-
-
 
 
 
