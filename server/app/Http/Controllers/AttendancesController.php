@@ -12,17 +12,19 @@ use Illuminate\Support\Facades\Mail;
 class AttendancesController extends Controller
 {
     public function confirmAttendance($id)
-    { 
+    {
         $user = Auth::user();
-        
         $event = Event::find($id);
-        
+    
+        if ($event->confirmAttendance()->where('user_id', $user->id)->exists()) {
+            return response()->json(['message' => 'El usuario ya está confirmado para este evento'], 400);
+        }
+    
         $event->confirmAttendance()->attach($user);
-
-        $confirmedDate = $user->confirmAttendance;
-        
-        Mail::to($user)->send(new ConfirmAttendance($user,$event));
-
+        Mail::to($user)->send(new ConfirmAttendance($user, $event));
+    
+        $confirmedDate = now();
+    
         return response()->json([
             'res' => true,
             'confirmedDate' => $confirmedDate,
