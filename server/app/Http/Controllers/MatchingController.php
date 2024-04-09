@@ -45,6 +45,7 @@ class MatchingController extends Controller
                 'description' => $match->profile->description,
                 'image' => $match->profile->image,
                 'matchingPercentage' => $matchingPercentage,
+                'user_id' => $match->id,
             ];
         }
     }
