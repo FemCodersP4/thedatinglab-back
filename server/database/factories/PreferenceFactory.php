@@ -26,7 +26,7 @@ class PreferenceFactory extends Factory // Cambiado a PreferenceFactory en lugar
             'values1' => $this->faker->randomElement(['amabilidad', 'amistad', 'autenticidad', 'aventura', 'comunicacion', 'conciencia', 'confianza', 'creatividad', 'cuidado', 'desarrollo']),
             'values2' => $this->faker->randomElement(['diversion', 'empatia', 'familia', 'fidelidad', 'generosidad', 'gratitud', 'honestidad', 'humildad', 'integridad', 'inteligencia']),
             'values3' => $this->faker->randomElement(['lealtad', 'libertad', 'optimismo', 'resiliencia', 'respeto', 'responsabilidad', 'afectiva', 'sencillez', 'solidaridad', 'humor', 'valentia']),
-            'prefers1' => $this->faker->randomElement(['netflix', 'eventos', 'gym', 'resiliencia', 'todas']),
+            'prefers1' => $this->faker->randomElement(['netflix', 'eventos', 'gym', 'todas']),
             'prefers2' => $this->faker->randomElement(['vino', 'cafe', 'agua', 'segun', 'ninguna']),
             'catsDogs' => $this->faker->randomElement(['gato', 'perro','todos', 'de amigos']),
             'rrss' => $this->faker->regexify('[A-Za-z0-9]{7}'),
