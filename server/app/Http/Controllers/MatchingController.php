@@ -31,23 +31,29 @@ class MatchingController extends Controller
     }
 
     private function buildResponse($matches, $userPreference)
-    {
-        $response = [];
-        $weights = json_decode(file_get_contents(resource_path('config/weights.json')), true);
+{
+    $response = [];
+    $weights = json_decode(file_get_contents(resource_path('config/weights.json')), true);
 
-        foreach ($matches as $match) {
-            $matchingPercentage = $this->calculateMatchingPercentage($userPreference, $match->preference, $weights);
+    foreach ($matches as $match) {
+        $matchingPercentage = $this->calculateMatchingPercentage($userPreference, $match->preference, $weights);
+
+        if ($matchingPercentage > 70) {
             $response[] = [
                 'name' => $match->name,
+                'lastname' => $match->lastname,
                 'birthdate' => $match->preference->birthdate,
                 'description' => $match->profile->description,
                 'image' => $match->profile->image,
                 'matchingPercentage' => $matchingPercentage,
+                'profile_id' => $match->profile->id,
+                'user_id' => $match->id,
             ];
         }
-
-        return $response;
     }
+
+    return $response;
+}
 
     private function getExcludedFields($weights)
 {
