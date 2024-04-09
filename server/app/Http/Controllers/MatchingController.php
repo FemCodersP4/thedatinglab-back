@@ -41,10 +41,12 @@ class MatchingController extends Controller
         if ($matchingPercentage > 70) {
             $response[] = [
                 'name' => $match->name,
+                'lastname' => $match->lastname,
                 'birthdate' => $match->preference->birthdate,
                 'description' => $match->profile->description,
                 'image' => $match->profile->image,
                 'matchingPercentage' => $matchingPercentage,
+                'profile_id' => $match->profile->id,
                 'user_id' => $match->id,
             ];
         }
