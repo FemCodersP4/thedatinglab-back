@@ -31,7 +31,7 @@ class ConfirmAttendance extends Mailable
     public function build()
     {
         return $this->view('confirmAttendance', ['user' => $this->user])
-                ->subject('¡Registro confirmado para el evento!');
+                ->subject('¡Inscripción al evento confirmada!');
     }
 
     /**
