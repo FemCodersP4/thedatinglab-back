@@ -34,6 +34,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(functi
     Route::put('/preferences/{id}', [PreferencesController::class, 'update']);
     Route::get('/export', [ExportController::class, 'export']);
     Route::get('export/event/attendance', [ExportController::class, 'exportEventAttendance']);
+    Route::get('export/matching/{id}', [ExportController::class, 'exportMatches']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

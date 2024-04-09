@@ -100,6 +100,7 @@ class AuthController extends Controller
             'name' => $user->name,
             'isAdmin' => $isAdmin,
             'id' => $user->id,
+            'profile_id' => $user->profile_id,
         ];
 
         if ($user->profile) {
