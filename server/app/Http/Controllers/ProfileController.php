@@ -30,10 +30,8 @@ class ProfileController extends Controller
 
         $imageName = Str::random(32).".".$request->image->getClientOriginalExtension();
 
-        // Almacena la imagen como un archivo en el sistema de archivos
         $request->image->storeAs('images', $imageName, 'public');
 
-        // Guarda la ruta de la imagen en lugar del nombre del archivo
         $profile = new Profile([
             'description' => $request->input('description'),
             'vitalMoment' => $request->input('vitalMoment'),
@@ -42,7 +40,6 @@ class ProfileController extends Controller
 
         $profile->save();
 
-        // Actualiza el perfil_id del usuario
         DB::table('users')
           ->where('id', $user->id)
           ->update(['profile_id' => $profile->id]);
@@ -74,7 +71,6 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Imprimir un mensaje al inicio para verificar si se está accediendo al controlador
         info('Se accedió al método update del controlador ProfileController.');
 
         $profile = Profile::find($id);
@@ -92,7 +88,6 @@ class ProfileController extends Controller
             ], 403);
         }
 
-        // Imprimir el contenido de $_FILES o $request->file('image') para verificar si la imagen se recibe correctamente
         if ($request->hasFile('image')) {
             info('Datos de la imagen recibidos correctamente:');
             info($request->file('image'));
