@@ -175,11 +175,10 @@
 							<table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
 								<tr>
 									<td width="560" valign="top" class="em-mob-wrap em-mob-width-100perc">
-										<table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
+										<table border="0" cellspacing="0" cellpadding="0">
 											<tr>
-												<td align="center" style="padding-bottom: 16px; height: 12px;" height="12">
-													<table border="0" cellspacing="0" cellpadding="0">
-														<tr>
+												<td style="padding: 0px 8px;" em="atom">
+													<a href="https://www.tiktok.com/@datinglabexperiences/" target="_blank"><img src="https://cdn.useblocks.io/26440/240403_1812_UBUEHoI.png" border="0" alt="Tiktok" style="display: block; width: 100%; max-width: 14px;" width="14"></a>
 												</td>
 												<td style="padding: 0px 8px;" em="atom">
 													<a href="https://www.linkedin.com/company/datinglab/" target="_blank"><img src="https://cdn.useblocks.io/26440/240403_1812_tAwBfaU.png" border="0" alt="Linkedin" style="display: block; width: 100%; max-width: 14px;" width="14"></a>
