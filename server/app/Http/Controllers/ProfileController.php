@@ -73,49 +73,64 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $profile = Profile::find($id);
+    {
+        // Imprimir un mensaje al inicio para verificar si se está accediendo al controlador
+        info('Se accedió al método update del controlador ProfileController.');
 
-    if (!$profile) {
+        $profile = Profile::find($id);
+
+        if (!$profile) {
+            return response()->json([
+                'message' => 'Perfil no encontrado',
+            ], 404);
+        }
+
+        $user = Auth::user();
+        if ($profile->id !== $user->profile->id) {
+            return response()->json([
+                'message' => 'No tienes permiso para editar este perfil',
+            ], 403);
+        }
+
+        // Imprimir el contenido de $_FILES o $request->file('image') para verificar si la imagen se recibe correctamente
+        if ($request->hasFile('image')) {
+            info('Datos de la imagen recibidos correctamente:');
+            info($request->file('image'));
+        } else {
+            info('No se recibieron datos de la imagen.');
+        }
+
+        if ($request->has('description')) {
+            $profile->description = $request->input('description');
+        }
+
+        if ($request->has('vitalMoment')) {
+            $profile->vitalMoment = $request->input('vitalMoment');
+        }
+
+        if ($request->hasFile('image')) {
+            $imageName = Str::random(32) . "." . $request->file('image')->getClientOriginalExtension();
+
+            // Imprimir la ruta de almacenamiento para verificar si se está guardando correctamente
+            info('Ruta de almacenamiento de la imagen:');
+            info(storage_path('app/public/images/' . $imageName));
+
+            // Eliminar la imagen anterior del disco de almacenamiento
+            Storage::delete('public/images/' . $profile->image);
+
+            // Guardar la nueva imagen en una carpeta específica
+            $request->file('image')->storeAs('images', $imageName, 'public');
+
+            // Almacenar la ruta completa de la imagen
+            $profile->image = 'images/' . $imageName;
+        }
+
+        $profile->save();
+
         return response()->json([
-            'message' => 'Perfil no encontrado',
-        ], 404);
+            'message' => 'Perfil actualizado con éxito',
+        ], 200);
     }
-
-    $user = Auth::user();
-    if ($profile->id !== $user->profile->id) {
-        return response()->json([
-            'message' => 'No tienes permiso para editar este perfil',
-        ], 403);
-    }
-
-    if ($request->has('description')) {
-        $profile->description = $request->input('description');
-    }
-
-    if ($request->has('vitalMoment')) {
-        $profile->vitalMoment = $request->input('vitalMoment');
-    }
-
-    if ($request->hasFile('image')) {
-        $imageName = Str::random(32) . "." . $request->file('image')->getClientOriginalExtension();
-
-        // Eliminar la imagen anterior del disco de almacenamiento
-        Storage::delete('public/images/' . $profile->image);
-
-        // Guardar la nueva imagen en una carpeta específica
-        $request->file('image')->storeAs('images', $imageName, 'public');
-        
-        // Almacenar la ruta completa de la imagen
-        $profile->image = 'images/' . $imageName;
-    }
-
-    $profile->save();
-
-    return response()->json([
-        'message' => 'Perfil actualizado con éxito',
-    ], 200);
-}
 
     public function getRegisteredEvents($user_id)
     {
