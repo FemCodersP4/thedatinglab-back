@@ -13,7 +13,7 @@ class EventController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:admin')->except('index', 'show','getEventsPagination');
+        $this->middleware('role:admin')->except('index', 'show', 'getEventsPagination');
     }
 
     /**
@@ -28,14 +28,12 @@ class EventController extends Controller
 
     public function getEventsPagination()
     {
-        try{
-            $events = Event::paginate(8);
+        try {
+            $events = Event::paginate(6);
             return response()->json($events, 200);
-
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['message' => 'Ha ocurrido un error al recuperar los eventos'], 500);
         }
-
     }
 
     /**
@@ -48,8 +46,8 @@ class EventController extends Controller
             'title' => 'required|string|max:255',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
-            'location'=> 'required|string|max:255',
-            'shortDescription'=> 'required|string|max:500',
+            'location' => 'required|string|max:255',
+            'shortDescription' => 'required|string|max:500',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
@@ -68,8 +66,8 @@ class EventController extends Controller
         $event = Event::create([
             'title' => $request->input('title'),
             'date' => $request->input('date'),
-            'location'=> $request->input('location'),
-            'shortDescription'=>$request->input('shortDescription'),
+            'location' => $request->input('location'),
+            'shortDescription' => $request->input('shortDescription'),
             'time' => $request->input('time'),
             'description' => $request->input('description'),
             'image' => $imagePath,
@@ -83,19 +81,19 @@ class EventController extends Controller
     }
 
     public function show($id)
-{
-    if (Auth::check()) {
-        $event = Event::findOrFail($id);
+    {
+        if (Auth::check()) {
+            $event = Event::findOrFail($id);
 
-        if ($event) {
-            return response()->json($event);
+            if ($event) {
+                return response()->json($event);
+            } else {
+                return response()->json(['error' => 'Evento no encontrado'], 404);
+            }
         } else {
-            return response()->json(['error' => 'Evento no encontrado'], 404);
+            return response()->json(['error' => 'No autorizado'], 401);
         }
-    } else {
-        return response()->json(['error' => 'No autorizado'], 401);
     }
-}
 
     public function update(Request $request, Event $event)
     {
@@ -103,8 +101,8 @@ class EventController extends Controller
             'title' => 'required|string|max:255',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
-            'location'=> 'required|string|max:255',
-            'shortDescription'=> 'required|string|max:500',
+            'location' => 'required|string|max:255',
+            'shortDescription' => 'required|string|max:500',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
