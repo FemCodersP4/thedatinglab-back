@@ -59,32 +59,40 @@ This database design provides efficient management of relationships among users,
 
 - Hemmi Castillo:
   ![Hemmi](https://github.com/Jasz-17/im-genes/blob/main/104555511.jpg?raw=true)
-  [Github](https://github.com/HemiCastillo), [LinkedIn](https://www.linkedin.com/in/hemileidis/)
+  [Github](https://github.com/HemiCastillo),
+  [LinkedIn](https://www.linkedin.com/in/hemileidis/)
 
 - Stefania:
   ![Fefy](https://avatars.githubusercontent.com/stef-ania?s=50)
-  [Github](https://github.com/stef-ania), [LinkedIn](https://www.linkedin.com/in/stefania-desogus/)
+  [Github](https://github.com/stef-ania),
+  [LinkedIn](https://www.linkedin.com/in/stefania-desogus/)
 
 - Laura GS:
   ![Laura](https://avatars.githubusercontent.com/ImLauraGS?s=50)
-  [Github](https://github.com/ImLauraGS), [LinkedIn](https://www.linkedin.com/in/laura-gil-solano/)
+  [Github](https://github.com/ImLauraGS),
+  [LinkedIn](https://www.linkedin.com/in/laura-gil-solano/)
 
 - Alicia E:
   ![Alicia](https://avatars.githubusercontent.com/AliciaoE?s=50)
-  [Github](https://github.com/AliciaoE), [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main/www.linkedin.com/in/alicia-ontiveros-escudero)
+  [Github](https://github.com/AliciaoE),
+  [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main/www.linkedin.com/in/alicia-ontiveros-escudero)
 
 - Débora Menezes:
   ![Débora](https://avatars.githubusercontent.com/debora-smb?s=50)
-  [Github](https://github.com/debora-smb), [LinkedIn](https://www.linkedin.com/in/debora-smenezes/)
+  [Github](https://github.com/debora-smb),
+  [LinkedIn](https://www.linkedin.com/in/debora-smenezes/)
 
 - Jéssica ZS:
   ![Jéssica](https://avatars.githubusercontent.com/Jasz-17?s=50)
-  [Github](https://github.com/Jasz-17), [LinkedIn](https://www.linkedin.com/in/jéssicazs)
+  [Github](https://github.com/Jasz-17),
+  [LinkedIn](https://www.linkedin.com/in/jéssicazs)
 
 - Gabriela Poves:
   ![Gabriela](https://github.com/Jasz-17/im-genes/blob/main/annaLucian.png?raw=true)
-  [Github](https://github.com/annaLucian), [LinkedIn](https://www.linkedin.com/in/gabriela-poves-navarro/)
+  [Github](https://github.com/annaLucian),
+  [LinkedIn](https://www.linkedin.com/in/gabriela-poves-navarro/)
 
 - Carolina Chagas:
   ![Carolina](https://avatars.githubusercontent.com/Thazet?s=50)
-  [Github](https://github.com/FemCodersP4/thedatinglab-front/blob/main), [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main)
+  [Github](https://github.com/FemCodersP4/thedatinglab-front/blob/main),
+  [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main)
