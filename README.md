@@ -33,7 +33,7 @@ DatingLab is a platform designed to streamline connections between individuals s
 
     
 ## ✨ Database Diagram ✨
-
+This database design provides efficient management of relationships among users, their profiles, preferences, and events, thereby simplifying the creation of meaningful matches in our dating application. The ability for multiple users to be associated with a single profile establishes a one-to-many relationship. This structure allows us to optimize the search and filtering of users based on their shared profiles and preferences, contributing to a more personalized and satisfying user experience.
 ![Screenshot](https://github.com/Jasz-17/im-genes/blob/main/image%2034.png?raw=true)
 
 
@@ -57,21 +57,22 @@ DatingLab is a platform designed to streamline connections between individuals s
 
 ## 🔗Authors
 
--  Hemmi: [Github](https://github.com/HemiCastillo), [LinkedIn](https://www.linkedin.com/in/hemileidis/)
+- Hemmi Castillo:![Hemmi](https://github.com/Jasz-17/im-genes/blob/main/104555511.jpg?raw=true) [Github](https://github.com/HemiCastillo), [LinkedIn](https://www.linkedin.com/in/hemileidis/)
 
--  Fefy: [Github](https://github.com/stef-ania), [LinkedIn](https://www.linkedin.com/in/stefania-desogus/)
 
--  Laura: [Github](https://github.com/ImLauraGS), [LinkedIn](https://www.linkedin.com/in/laura-gil-solano/)
+-  Stefania: ![Fefy](https://avatars.githubusercontent.com/stef-ania?s=50)[Github](https://github.com/stef-ania), [LinkedIn](https://www.linkedin.com/in/stefania-desogus/)
 
--  Alicia: [Github](https://github.com/AliciaoE), [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main/www.linkedin.com/in/alicia-ontiveros-escudero)
+-  Laura GS:![Laura](https://avatars.githubusercontent.com/ImLauraGS?s=50) [Github](https://github.com/ImLauraGS), [LinkedIn](https://www.linkedin.com/in/laura-gil-solano/)
 
--  Débora: [Github](https://github.com/debora-smb), [LinkedIn](https://www.linkedin.com/in/debora-smenezes/)
+-  Alicia E:![Alicia](https://avatars.githubusercontent.com/AliciaoE?s=50) [Github](https://github.com/AliciaoE), [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main/www.linkedin.com/in/alicia-ontiveros-escudero)
 
--  Jéssica: [Github](https://github.com/Jasz-17), [LinkedIn](https://www.linkedin.com/in/jéssicazs)
+-  Débora Menezes: ![Débora](https://avatars.githubusercontent.com/debora-smb?s=50)[Github](https://github.com/debora-smb), [LinkedIn](https://www.linkedin.com/in/debora-smenezes/)
 
--  Gabriela: [Github](https://github.com/annaLucian), [LinkedIn](https://www.linkedin.com/in/gabriela-poves-navarro/)
+-  Jéssica ZS:  ![Jéssica](https://avatars.githubusercontent.com/Jasz-17?s=50)[Github](https://github.com/Jasz-17), [LinkedIn](https://www.linkedin.com/in/jéssicazs)
 
--  Carolina: [Github](https://github.com/FemCodersP4/thedatinglab-front/blob/main), [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main)
+-  Gabriela Poves: ![Gabriela](https://github.com/Jasz-17/im-genes/blob/main/annaLucian.png?raw=true)[Github](https://github.com/annaLucian), [LinkedIn](https://www.linkedin.com/in/gabriela-poves-navarro/)
+
+-  Carolina Chagas:![Carolina](https://avatars.githubusercontent.com/Thazet?s=50) [Github](https://github.com/FemCodersP4/thedatinglab-front/blob/main), [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main)
 
 
 
