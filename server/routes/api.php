@@ -44,6 +44,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/event', [EventController::class, 'index']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/page', [EventController::class, 'getEventsPagination']);
 
 
 

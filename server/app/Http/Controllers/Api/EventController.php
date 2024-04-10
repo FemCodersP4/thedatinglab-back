@@ -13,7 +13,7 @@ class EventController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:admin')->except('index', 'show');
+        $this->middleware('role:admin')->except('index', 'show','getEventsPagination');
     }
 
     /**
@@ -23,6 +23,19 @@ class EventController extends Controller
     {
         $events = Event::all();
         return response()->json($events);
+    }
+
+
+    public function getEventsPagination()
+    {
+        try{
+            $events = Event::paginate(8);
+            return response()->json($events, 200);
+
+        }catch (\Exception $e) {
+            return response()->json(['message' => 'Ha ocurrido un error al recuperar los eventos'], 500);
+        }
+
     }
 
     /**
