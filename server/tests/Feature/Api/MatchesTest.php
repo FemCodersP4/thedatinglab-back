@@ -40,7 +40,7 @@ class MatchesTest extends TestCase
         $response = $this->getJson('/api/matching-users');
 
         $response->assertStatus(404);
-        $response->assertJson(['msg' => 'El usuario no tiene preferencias']);
+        $response->assertJson(['msg' => 'Necesitas rellenar el test de compatibilidad para poder ver tus matches.']);
     }
 
     public function test_user_cannot_get_empty_matches()
