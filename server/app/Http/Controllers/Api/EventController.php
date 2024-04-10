@@ -21,8 +21,22 @@ class EventController extends Controller
      */
     public function index()
     {
+        try {
         $events = Event::all();
+
+        if ($events->isEmpty()) {
+            return response()->json([
+                'message' => 'No hay eventos disponibles.'
+            ], 404);
+        }
+
         return response()->json($events);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Error al recuperar los eventos: ' . $e->getMessage()
+            ], 500); 
+        }
     }
 
 
@@ -102,9 +116,9 @@ class EventController extends Controller
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
             'location' => 'required|string|max:255',
-            'shortDescription' => 'required|string|max:500',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'shortDescription' => 'required|string|max:500',
         ]);
 
         if ($request->hasFile('image')) {
@@ -117,7 +131,7 @@ class EventController extends Controller
 
         $event->update($validatedData);
 
-        return response()->json(['message' => 'Evento actualizado exitosamente', 'event' => $event]);
+        return response()->json(['message' => 'Evento actualizado', 'event' => $event]);
     }
 
     public function destroy(Event $event)
@@ -126,6 +140,6 @@ class EventController extends Controller
             Storage::disk('public')->delete($event->image);
         }
         $event->delete();
-        return response()->json(['message' => 'Event deleted successfully']);
+        return response()->json(['message' => 'Evento eliminado correctamente']);
     }
 }
