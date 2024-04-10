@@ -73,7 +73,7 @@ class ProfileTest extends TestCase
 
         $response = $this->postJson("api/event/attendance/{$event->id}");
 
-        $response->assertStatus(200)
+        $response->assertStatus(201)
             ->assertJsonFragment([
                 'res' => true,  
             ]);
