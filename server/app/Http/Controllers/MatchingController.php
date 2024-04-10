@@ -13,13 +13,13 @@ class MatchingController extends Controller
             $user = Auth::user();
 
             if (!$user->preference) {
-                return response()->json(['msg' => 'El usuario no tiene preferencias'], 404);
+                return response()->json(['msg' => 'Necesitas rellenar el test de compatibilidad para poder ver tus matches.'], 404);
             }
 
             $matches = User::findMatchesForUser($user);
 
             if ($matches->isEmpty()) {
-                return response()->json(['msg' => 'No se han encontrado perfiles que superen el 70% de compatibilidad'], 404);
+                return response()->json(['msg' => 'No se han encontrado perfiles que superen el 70% de compatibilidad.'], 404);
             }
 
             $response = $this->buildResponse($matches, $user->preference);
