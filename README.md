@@ -57,42 +57,15 @@ This database design provides efficient management of relationships among users,
 
 ## 🔗Authors
 
-- Hemmi Castillo:
-  ![Hemmi](https://github.com/Jasz-17/im-genes/blob/main/104555511.jpg?raw=true)
-  [Github](https://github.com/HemiCastillo),
-  [LinkedIn](https://www.linkedin.com/in/hemileidis/)
+| ![Hemmi](https://github.com/Jasz-17/im-genes/blob/main/104555511.jpg?raw=true) | ![Fefy](https://avatars.githubusercontent.com/stef-ania?s=50) | ![Laura](https://avatars.githubusercontent.com/ImLauraGS?s=50) | ![Alicia](https://avatars.githubusercontent.com/AliciaoE?s=50) |
+| --- | --- | --- | --- |
+| Hemmi | Stefania | Laura G | Alicia E |
+| [LinkedIn](https://www.linkedin.com/in/hemileidis/) | [LinkedIn](https://www.linkedin.com/in/stefania-desogus/) | [LinkedIn](https://www.linkedin.com/in/laura-gil-solano/) | [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main/www.linkedin.com/in/alicia-ontiveros-escudero) |
 
-- Stefania:
-  ![Fefy](https://avatars.githubusercontent.com/stef-ania?s=50)
-  [Github](https://github.com/stef-ania),
-  [LinkedIn](https://www.linkedin.com/in/stefania-desogus/)
+| ![Débora](https://avatars.githubusercontent.com/debora-smb?s=50) | ![Jéssica](https://avatars.githubusercontent.com/Jasz-17?s=50) | ![Gabriela](https://github.com/Jasz-17/im-genes/blob/main/annaLucian.png?raw=true) | ![Carolina](https://avatars.githubusercontent.com/Thazet?s=50) |
+| --- | --- | --- | --- |
+| Débora M | Jéssica ZS | Gabriela P | Carolina Ch |
+| [LinkedIn](https://www.linkedin.com/in/debora-smenezes/) | [LinkedIn](https://www.linkedin.com/in/jéssicazs) | [LinkedIn](https://www.linkedin.com/in/gabriela-poves-navarro/) | [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main) |
 
-- Laura GS:
-  ![Laura](https://avatars.githubusercontent.com/ImLauraGS?s=50)
-  [Github](https://github.com/ImLauraGS),
-  [LinkedIn](https://www.linkedin.com/in/laura-gil-solano/)
 
-- Alicia E:
-  ![Alicia](https://avatars.githubusercontent.com/AliciaoE?s=50)
-  [Github](https://github.com/AliciaoE),
-  [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main/www.linkedin.com/in/alicia-ontiveros-escudero)
 
-- Débora Menezes:
-  ![Débora](https://avatars.githubusercontent.com/debora-smb?s=50)
-  [Github](https://github.com/debora-smb),
-  [LinkedIn](https://www.linkedin.com/in/debora-smenezes/)
-
-- Jéssica ZS:
-  ![Jéssica](https://avatars.githubusercontent.com/Jasz-17?s=50)
-  [Github](https://github.com/Jasz-17),
-  [LinkedIn](https://www.linkedin.com/in/jéssicazs)
-
-- Gabriela Poves:
-  ![Gabriela](https://github.com/Jasz-17/im-genes/blob/main/annaLucian.png?raw=true)
-  [Github](https://github.com/annaLucian),
-  [LinkedIn](https://www.linkedin.com/in/gabriela-poves-navarro/)
-
-- Carolina Chagas:
-  ![Carolina](https://avatars.githubusercontent.com/Thazet?s=50)
-  [Github](https://github.com/FemCodersP4/thedatinglab-front/blob/main),
-  [LinkedIn](https://github.com/FemCodersP4/thedatinglab-front/blob/main)
