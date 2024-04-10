@@ -15,40 +15,50 @@ class ProfileController extends Controller
 {
     public function store(Request $request)
 {
+    // Verificar si el usuario ya tiene un perfil
+    $user = Auth::user();
+    if ($user->profile_id) {
+        return response()->json([
+            'message' => 'El usuario ya tiene un perfil',
+        ], 403);
+    }
+
+    // Validar los datos de entrada
     $validator = Validator::make($request->all(), [
         'description' => 'required|string|max:255',
         'vitalMoment' => 'required|string|max:255',
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
     ]);
 
+    // Si hay errores de validación, devolverlos como respuesta
     if ($validator->fails()) {
         return response()->json([
             'validation_errors' => $validator->messages(),
         ], 422);
-    } else {
-        $user = Auth::user();
-
-        $imageName = Str::random(32).".".$request->image->getClientOriginalExtension();
-
-        $request->image->storeAs('images', $imageName, 'public');
-
-        $profile = new Profile([
-            'description' => $request->input('description'),
-            'vitalMoment' => $request->input('vitalMoment'),
-            'image' => 'images/' . $imageName, // Ruta del archivo
-        ]);
-
-        $profile->save();
-
-        DB::table('users')
-          ->where('id', $user->id)
-          ->update(['profile_id' => $profile->id]);
-
-        return response()->json([
-            'message' => 'Perfil creado con éxito',
-            'profile_id' => $profile->id
-        ], 200);
     }
+
+    // Procesar la solicitud si no hay errores de validación y el usuario no tiene un perfil
+    $imageName = Str::random(32).".".$request->image->getClientOriginalExtension();
+    $request->image->storeAs('images', $imageName, 'public');
+
+    $profile = new Profile([
+        'description' => $request->input('description'),
+        'vitalMoment' => $request->input('vitalMoment'),
+        'image' => 'images/' . $imageName, // Ruta del archivo
+    ]);
+
+    $profile->save();
+
+    // Actualizar el perfil_id del usuario
+    DB::table('users')
+      ->where('id', $user->id)
+      ->update(['profile_id' => $profile->id]);
+
+    // Devolver una respuesta exitosa
+    return response()->json([
+        'message' => 'Perfil creado con éxito',
+        'profile_id' => $profile->id
+    ], 200);
 }
 
     public function show(string $id)
