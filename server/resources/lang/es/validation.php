@@ -148,6 +148,7 @@ return [
 
     'attributes' => [
         'name' => 'nombre',
+        'lastname' => 'apellidos',
         'date' => 'fecha',
         'time' => 'hora',
         'password' => 'contraseña',

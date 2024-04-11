@@ -16,18 +16,29 @@ class AttendancesController extends Controller
         $user = Auth::user();
         
         $event = Event::find($id);
+
+        
+        if ($event->confirmAttendance()->where('user_id', $user->id)->exists()) {
+            return response()->json([
+                'res' => false,
+                'msg' => 'Ya estás registrado para este evento.'
+            ], 422);
+        }
+        
         
         $event->confirmAttendance()->attach($user);
 
-        $confirmedDate = $user->confirmAttendance;
+        $confirmedDate = now(); 
         
-        Mail::to($user)->send(new ConfirmAttendance($user,$event));
+        Mail::to($user)->send(new ConfirmAttendance($user, $event));
 
         return response()->json([
             'res' => true,
             'confirmedDate' => $confirmedDate,
-        ]);
+            'msg' => 'Te has registrado correctamente para el evento. Se ha enviado un correo electrónico de confirmación.'
+        ], 201);
     }
+
     public function eventAttendees($id)
     {
 

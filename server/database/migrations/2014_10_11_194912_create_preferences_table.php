@@ -24,9 +24,9 @@ return new class extends Migration
             $table->enum('values1', ['amabilidad', 'amistad', 'autenticidad', 'aventura', 'comunicacion', 'conciencia', 'confianza', 'creatividad', 'cuidado', 'desarrollo']);
             $table->enum('values2', ['diversion', 'empatia', 'familia', 'fidelidad', 'generosidad', 'gratitud', 'honestidad', 'humildad', 'integridad', 'inteligencia']);
             $table->enum('values3', ['lealtad', 'libertad', 'optimismo', 'resiliencia', 'respeto', 'responsabilidad', 'afectiva', 'sencillez', 'solidaridad', 'humor', 'valentia']);
-            $table->enum('prefers1', ['netflix', 'eventos', 'gym', 'resiliencia', 'todas']);
+            $table->enum('prefers1', ['netflix', 'eventos', 'gym', 'todas']);
             $table->enum('prefers2', ['vino', 'cafe', 'agua', 'segun', 'ninguna']);
-            $table->enum('catsDogs', ['gato', 'perro', 'de amigos']);
+            $table->enum('catsDogs', ['gato', 'perro','todos', 'de amigos']);
             $table->string('rrss', 250)->nullable();
             $table->timestamps();
         });

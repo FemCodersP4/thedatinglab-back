@@ -38,7 +38,7 @@ class PreferencesController extends Controller
             'values3' => ['required','in:lealtad,libertad,optimismo,resiliencia,respeto,responsabilidad,afectiva,sencillez,humor,valentia'],
             'prefers1' => ['required','in:netflix,eventos,gym,todas'],
             'prefers2' => ['required','in:vino,cafe,agua,segun,ninguna'],
-            'catsDogs' => ['required','in:gato,perro,de amigos'],
+            'catsDogs' => ['required','in:gato,perro,todos,de amigos'],
             'rrss' => ['required', 'string'],
 
         ]);
@@ -108,7 +108,7 @@ public function update(Request $request, $id)
             'values3' => ['required','in:lealtad,libertad,optimismo,resiliencia,respeto,responsabilidad,afectiva,sencillez,solidaridad,humor,valentia'],
             'prefers1' => ['required','in:netflix,eventos,gym,todas'],
             'prefers2' => ['required','in:vino,cafe,agua,segun,ninguna'],
-            'catsDogs' => ['required','in:gato,perro,de amigos'],
+            'catsDogs' => ['required','in:gato,perro,todos,de amigos'],
             'rrss' => ['required', 'string'],
         ]);
 

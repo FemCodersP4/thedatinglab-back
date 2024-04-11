@@ -76,7 +76,7 @@ class AdminTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJson([
-                'message' => 'Evento actualizado exitosamente',
+                'message' => 'Evento actualizado',
             ]);
     }
 

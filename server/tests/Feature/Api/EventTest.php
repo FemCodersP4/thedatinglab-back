@@ -51,7 +51,7 @@ class EventTest extends TestCase
         $response->assertJsonFragment(['res' => true])
 
             
-            ->assertStatus(200);
+            ->assertStatus(201);
             $this->assertTrue($event->confirmAttendance->contains($user));
             
     }
@@ -67,7 +67,7 @@ class EventTest extends TestCase
 
         $response = $this->postJson("api/event/attendance/{$event->id}");
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
         $response->assertJsonFragment([
             'res' => true
         ]);
