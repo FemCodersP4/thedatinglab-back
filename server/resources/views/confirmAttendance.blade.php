@@ -172,9 +172,9 @@
 					</tr>
 					<tr em="block" class="em-structure">
 						<td align="center" style="padding: 32px 40px; background-color: #df6761;" class="em-mob-padding_left-20 em-mob-padding_right-20 em-mob-padding_top-20 em-mob-padding_bottom-20" bgcolor="#DF6761">
-							<table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+							<table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
 								<tr>
-									<td width="560" valign="top" class="em-mob-wrap em-mob-width-100perc">
+									<td align="center" style="padding-bottom: 16px; height: 12px;" height="12">
 										<table border="0" cellspacing="0" cellpadding="0">
 											<tr>
 												<td style="padding: 0px 8px;" em="atom">
